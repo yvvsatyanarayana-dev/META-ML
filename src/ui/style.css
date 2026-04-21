@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Global Font & Theme */
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif;
+    color: #f9fafb;
+    background-color: #050506;
+}
+
+.stApp {
+    background-color: #0a0a0b;
+}
+
+/* TARGETING NATIVE STREAMLIT CONTAINERS (Fixing the ghost blocks) */
+[data-testid="stVerticalBlockBorderWrapper"] {
+    background: rgba(20, 20, 21, 0.7) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-radius: 16px !important;
+    padding: 2rem !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Explicitly removing the ghost white box caused by empty markdown divs */
+.stMarkdown div {
+    background: transparent !important;
+}
+
+/* Hide "Press Enter to apply" hint to prevent overlap */
+div[data-testid="InputInstructions"] {
+    visibility: hidden;
+    height: 0px;
+    margin: 0px;
+}
+
+/* Header & Typography */
+.meta-header {
+    background: linear-gradient(90deg, #ffffff 0%, #10b981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 30px;
+}
+
+/* Branding Alignment Fix */
+.branding-container {
+    text-align: left;
+}
+
+/* Input Styling (Dark & Slim) */
+[data-testid="stTextInput"] input, [data-testid="stTextArea"] textarea {
+    border-radius: 10px !important;
+    border: 1px solid #262626 !important;
+    padding: 14px !important;
+    background-color: #0f0f10 !important;
+    color: #f9fafb !important;
+    font-size: 15px !important;
+}
+
+[data-testid="stTextInput"] input:focus {
+    border-color: #10b981 !important;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.15) !important;
+}
+
+/* Primary Button Styling (Emerald High-Impact) */
+.stButton button {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: #052e16 !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    height: 50px !important;
+}
+
+.stButton button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3) !important;
+    filter: brightness(1.1);
+}
+
+/* Dashboard Metric Enhancement */
+.metric-container {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.metric-item {
+    flex: 1;
+    background: rgba(30, 41, 59, 0.4);
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(16, 185, 129, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.metric-item:hover {
+    border-color: rgba(16, 185, 129, 0.4);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.05);
+    background: rgba(30, 41, 59, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Sidebar Customization */
+.stSidebar {
+    background-color: #050506 !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Left-Side Spacing Fix */
+[data-testid="stHorizontalBlock"] {
+    align-items: center !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade {
+    animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
